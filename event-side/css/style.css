@@ -27,8 +27,23 @@ body {
   width: 100%;
 }
 
-.title-bar {
-  margin: 0;
+.input-area {
+  margin-bottom: 10px;
+  padding: 0 50px;
+  height: 100%;
+  width: auto;
+  background-color: #2f4d66;
+  border-radius: 10px;
+  font-size: 15px;
+
+  /* horizontal & vertical of font, the line-height need to equal height */
+  text-align: center;
+  line-height: 50px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.filter-ara {
+  margin-bottom: 10px;
   padding: 0 50px;
   height: 100%;
   width: auto;
@@ -45,7 +60,7 @@ body {
 .table {
   margin-top: 10px;
   width: 100%;
-  min-height: 100px;
+  min-height: 50px;
   background-color: rgba(221, 221, 221, 0.562);
   border-radius: 7px;
   display: flex;
@@ -74,13 +89,12 @@ body {
 
 .sex {
   padding: 0 10px;
-  background-color: #82a0c8;
   text-align: center;
 }
 
 .name {
   padding: 0 5px;
-  background-color: #8285c8;
+  background-color: #7c7c7c;
   border-radius: 0 5px 5px 0;
   text-align: center;
 }
@@ -88,4 +102,12 @@ body {
 .phone {
   padding: 0 5px 0 10px;
   text-align: center;
+}
+
+.boy {
+  background-color: #82acc8;
+}
+
+.girl {
+  background-color: #da6464;
 }

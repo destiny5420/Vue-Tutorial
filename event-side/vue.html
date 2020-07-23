@@ -18,7 +18,7 @@
   <body>
     <div class="app">
       <div class="container">
-        <div class="title-bar">
+        <div class="input-area">
           <select v-model="input.sex" name="" id="">
             <option value="男">男生</option>
             <option value="女">女生</option>
@@ -27,13 +27,28 @@
           <input v-model.trim="input.name" type="text" />
           <span>電話 </span>
           <input v-model="input.phone" type="text" @keyup.enter="confirm()" />
-          <input type="button" value="Confirm" @click="confirm()" />
+          <input
+            type="button"
+            value="Input the data"
+            @click="confirm()"
+            name="Hello"
+          />
+        </div>
+
+        <div class="filter-ara">
+          <span>搜尋</span>
+          <select v-model="filter.sex" name="" id="">
+            <option value="All">全部</option>
+            <option value="男">男生</option>
+            <option value="女">女生</option>
+          </select>
+          <input v-model="filter.content" type="text" @keyup.enter="" />
         </div>
 
         <div class="table">
-          <div class="item" v-for="(item,index) in menu">
+          <div class="item" v-for="(item, index) in inputFilter">
             <span class="index">{{ index+1 }}</span>
-            <span class="sex">{{ item.sex }}</span>
+            <span :class="item.classAtt">{{ item.sex }}</span>
             <span class="name">{{ item.name }}</span>
             <a :href="item.link" class="phone">{{ item.phone }}</a>
           </div>

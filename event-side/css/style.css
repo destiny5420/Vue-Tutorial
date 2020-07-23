@@ -1,0 +1,49 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #5ecc95;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main {
+  margin: 0px 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#title {
+  margin: 0;
+  padding: 0 50px;
+  height: 50px;
+  width: 500px;
+  background-color: #2f4d66;
+  border-radius: 10px;
+  font-size: 15px;
+
+  /* horizontal & vertical of font, the line-height need to equal height */
+  text-align: center;
+  line-height: 50px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.info {
+  margin-top: 10px;
+  width: 100%;
+  height: 170px;
+  background-color: rgb(224, 224, 224);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

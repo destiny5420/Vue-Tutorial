@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2ccf1bd19b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="container">
+        <h1 id="title">
+          {{ name }}，{{ sex }}，年齡為{{ age }}{{ favor.length === 0 ?
+          '':'，興趣為' }}{{favor.join('、')}}，{{ member === true ? '已':'未'
+          }}成為會員
+        </h1>
+        <div class="info">
+          <table>
+            <tr>
+              <td class="title">姓名:</td>
+              <td><input v-model="name" /></td>
+            </tr>
+            <tr>
+              <td class="title">性別:</td>
+              <td><input type="radio" value="女" v-model="sex" />女</td>
+              <td><input type="radio" value="男" v-model="sex" />男</td>
+              <td><input type="radio" value="雙性" v-model="sex" />雙性</td>
+            </tr>
+            <tr>
+              <td class="title">興趣:</td>
+              <td>
+                <input type="checkbox" value="coding" v-model="favor" />Code
+              </td>
+              <td>
+                <input type="checkbox" value="game" v-model="favor" />電玩
+              </td>
+              <td>
+                <input type="checkbox" value="travel" v-model="favor" />旅行
+              </td>
+            </tr>
+            <tr>
+              <td class="title">年齡:</td>
+              <td>
+                <select v-model="age">
+                  <option>11-20歲</option>
+                  <option>21-30歲</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td class="title">會員:</td>
+              <td><input type="checkbox" v-model="member" />加入</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

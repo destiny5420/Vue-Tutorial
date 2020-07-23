@@ -14,18 +14,24 @@ body {
   justify-content: center;
 }
 
-.main {
-  margin: 0px 100px;
+.app {
+  margin: 0px 30px;
+  height: 500px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
-#title {
+.container {
+  width: 100%;
+}
+
+.title-bar {
   margin: 0;
   padding: 0 50px;
-  height: 50px;
-  width: 500px;
+  height: 100%;
+  width: auto;
   background-color: #2f4d66;
   border-radius: 10px;
   font-size: 15px;
@@ -36,14 +42,50 @@ body {
   font-family: 'Noto Sans TC', sans-serif;
 }
 
-.info {
+.table {
   margin-top: 10px;
   width: 100%;
-  height: 170px;
-  background-color: rgb(224, 224, 224);
+  min-height: 100px;
+  background-color: rgba(221, 221, 221, 0.562);
   border-radius: 7px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.item {
+  margin: 5px;
+  padding: 5px;
+  width: 350px;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.index {
+  padding: 0 5px;
+  background-color: #4a4063;
+  text-align: center;
+  border-radius: 5px 0 0 5px;
+  color: aliceblue;
+}
+
+.sex {
+  padding: 0 10px;
+  background-color: #82a0c8;
+  text-align: center;
+}
+
+.name {
+  padding: 0 5px;
+  background-color: #8285c8;
+  border-radius: 0 5px 5px 0;
+  text-align: center;
+}
+
+.phone {
+  padding: 0 5px 0 10px;
+  text-align: center;
 }

@@ -112,13 +112,3 @@ body {
   background-color: #f8806b;
   border-radius: 0 0 10px 0;
 }
-
-.v-enter,
-.v-leave-to {
-  opacity: 0;
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s;
-}

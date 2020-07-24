@@ -33,7 +33,14 @@
           <i class="far fa-arrow-alt-circle-left" @click="changeList(-1)"></i>
 
           <!-- KEY POINT -->
-          <transition name="v" mode="out-in" appear>
+          <transition
+            @before-enter="beforeEnterHandler"
+            @enter="enterHandler"
+            @after-enter="afterEnterHandler"
+            :css="false"
+            mode="out-in"
+            appear
+          >
             <div
               class="select-item"
               v-for="(item,index) in menu"
@@ -64,6 +71,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/app.js"></script>
   </body>
 </html>

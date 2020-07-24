@@ -17,9 +17,15 @@ body {
 }
 
 .app {
+  background-color: #ffffff;
+  box-shadow: -4px 5px 5px #0000003b;
+
   margin: 0px 30px;
-  height: 500px;
-  min-width: 760px;
+  height: auto;
+  min-width: 350px;
+
+  border-radius: 10px;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -27,30 +33,86 @@ body {
 }
 
 .container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 80%;
+  margin: 20px 0;
 }
 
-.group {
-  margin: 50px 0;
+#title {
+  height: 40px;
+  color: #3885be;
+  font-family: 'Martel', serif;
+  font-size: 25pt;
+  line-height: 50px;
+}
+
+.input-item {
+  margin: 20px 0;
+  height: auto;
+}
+
+.item-title {
+  margin-bottom: 2.5px;
+
+  color: #757575;
+  font-size: 10pt;
+  font-family: 'Noto Sans', sans-serif;
+  display: block;
+}
+
+.item-input {
+  color: #757575;
+
+  margin: 0;
+  padding: 0px 15px;
+
+  height: 30px;
+  width: calc(100% - (15px * 2) - (1px * 2));
+
+  border: 1px solid #bdbdbd;
+  border-radius: 7px;
+}
+
+.btn-group {
+  margin: 35px 0 15px 0;
+  width: 100%;
 
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.item {
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  width: 40px;
-  height: 40px;
+.btn {
+  height: 30px;
+  width: 45%;
 
-  margin: 0 15px;
+  border: none;
+  border-radius: 15px;
+}
 
-  text-align: center;
-  font-size: 14px;
-  line-height: 40px;
+.cancel {
+  font-family: 'Noto Sans', sans-serif;
+  color: #929292;
+  background: #efefef;
+  transition-property: background;
+  transition-duration: 0.25s;
+}
 
-  border-radius: 100px;
+.cancel:hover {
+  background: #e0e0e0;
+  transition-property: background;
+  transition-duration: 0.25s;
+}
+
+.confirm {
+  font-family: 'Noto Sans', sans-serif;
+  color: #ffffff;
+  background: #2ebc4f;
+  transition-property: background;
+  transition-duration: 0.25s;
+}
+
+.confirm:hover {
+  background: #28a345;
+  transition-property: background;
+  transition-duration: 0.25s;
 }

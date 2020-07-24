@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+TC:wght@100&family=Martel:wght@900&display=swap"
       rel="stylesheet"
     />
     <script
@@ -18,30 +18,18 @@
   <body>
     <div class="app">
       <div class="container">
-        <div class="group">
-          <div><div class="item" @click="number++">{{ number }}</div></div>
+        <div id="title">DIRECTORY</div>
+        <div class="input-item">
+          <span class="item-title">Name</span>
+          <input type="text" class="item-input" />
         </div>
-
-        <div class="group">
-          <div><div @click="obj.num++" class="item">{{ obj.num }}</div></div>
+        <div class="input-item">
+          <span class="item-title">Email</span>
+          <input type="email" name="Email" class="item-input" />
         </div>
-
-        <div class="group">
-          <span
-            class="item"
-            v-for="(item, index) in objList"
-            @click="objListHandler(index)"
-            >{{ item.num }}</span
-          >
-        </div>
-
-        <div class="group">
-          <span
-            class="item"
-            v-for="(item, index) in numberList"
-            @click="numListHandler(index)"
-            >{{ item }}</span
-          >
+        <div class="btn-group">
+          <button class="btn confirm">CONFIRM</button>
+          <button class="btn cancel">CANCEL</button>
         </div>
       </div>
     </div>

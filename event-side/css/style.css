@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #5ecc95;
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
   margin: 0;
   padding: 0;
   width: 100%;
@@ -112,4 +112,33 @@ body {
 
 .girl {
   background-color: #da6464;
+}
+
+#logo {
+  margin: 25px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#slogan {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #adadad;
+  margin: 10px 0;
+  padding: 10px 0;
+  width: 400px;
+  background: #49555f;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#select-bar {
+  margin: 10px 0;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
 }

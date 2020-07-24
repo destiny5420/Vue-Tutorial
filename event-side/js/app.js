@@ -1,4 +1,5 @@
 var data = {
+  slogan: 'Welcome to transition animation of menu.',
   input: {
     name: '',
     sex: '男',

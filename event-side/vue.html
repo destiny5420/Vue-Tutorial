@@ -18,40 +18,17 @@
   <body>
     <div class="app">
       <div class="container">
-        <div class="input-area">
-          <select v-model="input.sex" name="" id="">
-            <option value="男">男生</option>
-            <option value="女">女生</option>
-          </select>
-          <span>姓名 </span>
-          <input v-model.trim="input.name" type="text" />
-          <span>電話 </span>
-          <input v-model="input.phone" type="text" @keyup.enter="confirm()" />
-          <input
-            type="button"
-            value="Input the data"
-            @click="confirm()"
-            name="Hello"
-          />
+        <div id="logo">
+          <img src="./src/vue_image.png" alt="" />
         </div>
 
-        <div class="filter-ara">
-          <span>搜尋</span>
-          <select v-model="filter.sex" name="" id="">
-            <option value="All">全部</option>
-            <option value="男">男生</option>
-            <option value="女">女生</option>
-          </select>
-          <input v-model="filter.content" type="text" @keyup.enter="" />
+        <div id="slogan">
+          <span>{{ slogan }}</span>
         </div>
 
-        <div class="table">
-          <div class="item" v-for="(item, index) in inputFilter">
-            <span class="index">{{ index+1 }}</span>
-            <span :class="item.classAtt">{{ item.sex }}</span>
-            <span class="name">{{ item.name }}</span>
-            <a :href="item.link" class="phone">{{ item.phone }}</a>
-          </div>
+        <div id="select-bar">
+          <i class="far fa-arrow-alt-circle-left"></i>
+          <i class="far fa-arrow-alt-circle-right"></i>
         </div>
       </div>
     </div>

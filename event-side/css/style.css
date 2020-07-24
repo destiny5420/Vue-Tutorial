@@ -69,7 +69,8 @@ body {
   width: calc(100% - (15px * 2) - (1px * 2));
 
   border: 1px solid #bdbdbd;
-  border-radius: 7px;
+  border-radius: 17px;
+  outline: none;
 }
 
 .btn-group {

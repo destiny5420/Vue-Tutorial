@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2ccf1bd19b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="container">
+        <div class="group">
+          <div><div class="item" @click="number++">{{ number }}</div></div>
+        </div>
+
+        <div class="group">
+          <div><div @click="obj.num++" class="item">{{ obj.num }}</div></div>
+        </div>
+
+        <div class="group">
+          <span
+            class="item"
+            v-for="(item, index) in objList"
+            @click="objListHandler(index)"
+            >{{ item.num }}</span
+          >
+        </div>
+
+        <div class="group">
+          <span
+            class="item"
+            v-for="(item, index) in numberList"
+            @click="numListHandler(index)"
+            >{{ item }}</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

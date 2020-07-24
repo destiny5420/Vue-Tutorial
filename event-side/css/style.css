@@ -17,19 +17,85 @@ body {
 }
 
 .app {
-  background-color: #ffffff;
-  box-shadow: -4px 5px 5px #0000003b;
-
   margin: 0px 30px;
-  height: auto;
   min-width: 350px;
-
-  border-radius: 10px;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+#directory {
+  background-color: #ffffff;
+  box-shadow: -4px 5px 5px #0000003b;
+  border-radius: 10px;
+
+  min-width: 300px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#info-list {
+  min-width: 800px;
+  height: 500px;
+  margin: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.info-item {
+  margin-bottom: 10px;
+  padding: 0 15px;
+
+  height: 50px;
+  width: 750px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.info-index {
+  background-color: rgb(64, 77, 116);
+  width: 30px;
+  height: 30px;
+
+  font-family: 'Noto Sans', sans-serif;
+  color: #bdbdbd;
+  text-align: center;
+  line-height: 30px;
+
+  border-radius: 20px;
+}
+
+.info-name {
+  background-color: rgb(255, 223, 116);
+  padding: 0 20px;
+
+  font-family: 'Noto Sans', sans-serif;
+  color: #242424;
+  text-align: center;
+  line-height: 30px;
+
+  border-radius: 5px 0 5px 0;
+}
+
+.item-btn-width {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 15px;
+  outline: none;
 }
 
 .container {
@@ -41,7 +107,7 @@ body {
   height: 40px;
   color: #3885be;
   font-family: 'Martel', serif;
-  font-size: 25pt;
+  font-size: 18pt;
   line-height: 50px;
 }
 
@@ -68,8 +134,8 @@ body {
   height: 30px;
   width: calc(100% - (15px * 2) - (1px * 2));
 
-  border: 1px solid #bdbdbd;
-  border-radius: 17px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
   outline: none;
 }
 
@@ -88,6 +154,35 @@ body {
 
   border: none;
   border-radius: 15px;
+  outline: none;
+}
+
+.modify {
+  font-family: 'Noto Sans', sans-serif;
+  color: #686868;
+  background: #e2e2e2;
+  transition-property: background;
+  transition-duration: 0.25s;
+}
+
+.modify:hover {
+  background: #bbbbbb;
+  transition-property: background;
+  transition-duration: 0.25s;
+}
+
+.delete {
+  font-family: 'Noto Sans', sans-serif;
+  color: #ffffff;
+  background: #eb4d4b;
+  transition-property: background;
+  transition-duration: 0.25s;
+}
+
+.delete:hover {
+  background: #ca4340;
+  transition-property: background;
+  transition-duration: 0.25s;
 }
 
 .cancel {

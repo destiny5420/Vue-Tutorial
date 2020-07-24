@@ -17,19 +17,30 @@
 
   <body>
     <div class="app">
-      <div class="container">
-        <div id="title">DIRECTORY</div>
-        <div class="input-item">
-          <span class="item-title">Name</span>
-          <input type="text" class="item-input" />
+      <div id="directory">
+        <div class="container">
+          <div id="title">DIRECTORY</div>
+          <div class="input-item">
+            <span class="item-title">Name</span>
+            <input type="text" class="item-input" />
+          </div>
+          <div class="input-item">
+            <span class="item-title">Email</span>
+            <input type="email" name="Email" class="item-input" />
+          </div>
+          <div class="btn-group">
+            <button class="btn confirm">CONFIRM</button>
+            <button class="btn cancel">CANCEL</button>
+          </div>
         </div>
-        <div class="input-item">
-          <span class="item-title">Email</span>
-          <input type="email" name="Email" class="item-input" />
-        </div>
-        <div class="btn-group">
-          <button class="btn confirm">CONFIRM</button>
-          <button class="btn cancel">CANCEL</button>
+      </div>
+      <div id="info-list">
+        <div class="info-item">
+          <span class="info-index">0</span>
+          <span class="info-name">paper</span>
+          <span>paper.hsiao@gmail.com</span>
+          <button class="item-btn-width modify">修改</button>
+          <button class="item-btn-width delete">刪除</button>
         </div>
       </div>
     </div>

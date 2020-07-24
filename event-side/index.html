@@ -18,54 +18,30 @@
   <body>
     <div class="app">
       <div class="container">
-        <!-- LOGO -->
-        <div id="logo">
-          <img src="./src/vue_image.png" alt="" />
+        <div class="group">
+          <div><div class="item" @click="number++">{{ number }}</div></div>
         </div>
 
-        <!-- SLOGAN -->
-        <div id="slogan">
-          <span>{{ slogan }}</span>
+        <div class="group">
+          <div><div @click="obj.num++" class="item">{{ obj.num }}</div></div>
         </div>
 
-        <!-- SELECT BAR -->
-        <div id="select-bar">
-          <i class="far fa-arrow-alt-circle-left" @click="changeList(-1)"></i>
-
-          <!-- KEY POINT -->
-          <transition
-            @before-enter="beforeEnterHandler"
-            @enter="enterHandler"
-            @after-enter="afterEnterHandler"
-            :css="false"
-            mode="out-in"
-            appear
+        <div class="group">
+          <span
+            class="item"
+            v-for="(item, index) in objList"
+            @click="objListHandler(index)"
+            >{{ item.num }}</span
           >
-            <div
-              class="select-item"
-              v-for="(item,index) in menu"
-              v-if="curIndex === index"
-              :key="index"
-            >
-              <span class="select-item-height select-item-layout select-item-id"
-                ><span>{{ index+1 }}</span></span
-              >
-              <span
-                class="select-item-sex select-item-height select-item-layout"
-                ><span>{{ item.sex }}</span></span
-              >
-              <span
-                class="select-item-name select-item-height select-item-layout"
-                ><span>{{ item.name }}</span></span
-              >
-              <span
-                class="select-item-phone select-item-height select-item-layout"
-                ><span>{{ item.phone }}</span></span
-              >
-            </div>
-          </transition>
+        </div>
 
-          <i class="far fa-arrow-alt-circle-right" @click="changeList(1)"></i>
+        <div class="group">
+          <span
+            class="item"
+            v-for="(item, index) in numberList"
+            @click="numListHandler(index)"
+            >{{ item }}</span
+          >
         </div>
       </div>
     </div>

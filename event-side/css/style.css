@@ -1,4 +1,5 @@
 html {
+  font-family: 'Noto Sans TC', sans-serif;
   height: 100%;
 }
 
@@ -18,7 +19,7 @@ body {
 .app {
   margin: 0px 30px;
   height: 500px;
-  max-width: 760px;
+  min-width: 760px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -30,85 +31,26 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
-#logo {
-  margin: 25px 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#slogan {
-  font-family: 'Noto Sans TC', sans-serif;
-  color: #adadad;
-  margin: 10px 0 50px 0;
-  padding: 10px 0;
-  width: 400px;
-  background: #49555f;
-  border-radius: 7px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#select-bar {
-  padding: 10px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#select-bar i {
-  font-size: 30px;
-}
-
-.select-item {
-  margin: 0 50px;
-
-  font-size: 18px;
+.group {
+  margin: 50px 0;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 
-/* Component */
-.select-item-height {
-  height: 25px;
-}
+.item {
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  width: 40px;
+  height: 40px;
 
-/* Component */
-.select-item-layout {
-  padding: 0 20px;
+  margin: 0 15px;
 
   text-align: center;
+  font-size: 14px;
+  line-height: 40px;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.select-item-id {
-  padding: 0 20px 0 30px;
-  background-color: #4a4063;
-  border-radius: 10px 0 0 0;
-}
-
-.select-item-sex {
-  background-color: #729484;
-}
-
-.select-item-name {
-  background-color: #7c7c7c;
-}
-
-.select-item-phone {
-  background-color: #f8806b;
-  border-radius: 0 0 10px 0;
+  border-radius: 100px;
 }

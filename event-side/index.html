@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2ccf1bd19b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="container">
+        <!-- LOGO -->
+        <div id="logo">
+          <img src="./src/vue_image.png" alt="" />
+        </div>
+
+        <!-- SLOGAN -->
+        <div id="slogan">
+          <span>{{ slogan }}</span>
+        </div>
+
+        <!-- SELECT BAR -->
+        <div id="select-bar">
+          <i class="far fa-arrow-alt-circle-left" @click="changeList(-1)"></i>
+
+          <!-- KEY POINT -->
+          <transition name="v" mode="out-in">
+            <div
+              class="select-item"
+              v-for="(item,index) in menu"
+              v-if="curIndex === index"
+              :key="index"
+              appear
+            >
+              <span class="select-item-height select-item-layout select-item-id"
+                ><span>{{ index+1 }}</span></span
+              >
+              <span
+                class="select-item-sex select-item-height select-item-layout"
+                ><span>{{ item.sex }}</span></span
+              >
+              <span
+                class="select-item-name select-item-height select-item-layout"
+                ><span>{{ item.name }}</span></span
+              >
+              <span
+                class="select-item-phone select-item-height select-item-layout"
+                ><span>{{ item.phone }}</span></span
+              >
+            </div>
+          </transition>
+
+          <i class="far fa-arrow-alt-circle-right" @click="changeList(1)"></i>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

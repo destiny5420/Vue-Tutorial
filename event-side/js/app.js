@@ -1,4 +1,9 @@
 var data = {
+  slogan: 'Welcome to transition animation of menu.',
+  curIndex: 0,
+  curSex: '男',
+  curName: '蕭分維',
+  curPhone: '0983580999',
   input: {
     name: '',
     sex: '男',
@@ -105,40 +110,22 @@ var data = {
 let vm = new Vue({
   el: '.app',
   methods: {
-    confirm: function () {
-      if (!this.input.phone) return;
+    changeList: function (value) {
+      this.curIndex =
+        (this.curIndex + value + this.menu.length) % this.menu.length;
 
-      this.input.name = this.input.name || 'null';
-      this.menu.push({
-        name: this.input.name,
-        sex: this.input.sex,
-        phone: this.input.phone,
-        link: '',
-        classAtt: {
-          boy: this.input.sex === '男' ? true : false,
-          girl: this.input.sex === '男' ? false : true,
-        },
-      });
+      this.curName = this.menu[this.curIndex].name;
+      this.curSex = this.menu[this.curIndex].sex;
+      this.curPhone = this.menu[this.curIndex].phone;
     },
-  },
-  computed: {
-    sexFilter: function () {
-      if (this.filter.sex !== 'All') {
-        return this.menu.filter((item) => {
-          return item.sex === this.filter.sex;
-        });
-      } else return this.menu;
+    beforeEnterHandler: function (el) {
+      $(el).css({ opacity: 0 });
     },
-    inputFilter: function () {
-      if (this.filter.content) {
-        return this.sexFilter.filter((item) => {
-          let srcContent = item.name.toLowerCase();
-          let filterContent = this.filter.content;
-          return srcContent.indexOf(filterContent) !== -1;
-        });
-      } else {
-        return this.sexFilter;
-      }
+    enterHandler: function (el, done) {
+      $(el).animate({ opacity: 1 }, 1000, done);
+    },
+    afterEnterHandler: function (el) {
+      $(el).css({ opacity: '' });
     },
   },
   data: data,

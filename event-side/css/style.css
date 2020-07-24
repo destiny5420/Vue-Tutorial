@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #5ecc95;
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
   margin: 0;
   padding: 0;
   width: 100%;
@@ -27,89 +27,88 @@ body {
 
 .container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.input-area {
-  margin-bottom: 10px;
-  padding: 0 50px;
-  height: 100%;
-  width: auto;
-  background-color: #2f4d66;
-  border-radius: 10px;
-  font-size: 15px;
-
-  /* horizontal & vertical of font, the line-height need to equal height */
-  text-align: center;
-  line-height: 50px;
-  font-family: 'Noto Sans TC', sans-serif;
-}
-
-.filter-ara {
-  margin-bottom: 10px;
-  padding: 0 50px;
-  height: 100%;
-  width: auto;
-  background-color: #2f4d66;
-  border-radius: 10px;
-  font-size: 15px;
-
-  /* horizontal & vertical of font, the line-height need to equal height */
-  text-align: center;
-  line-height: 50px;
-  font-family: 'Noto Sans TC', sans-serif;
-}
-
-.table {
-  margin-top: 10px;
+#logo {
+  margin: 25px 0;
   width: 100%;
-  min-height: 50px;
-  background-color: rgba(221, 221, 221, 0.562);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#slogan {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #adadad;
+  margin: 10px 0 50px 0;
+  padding: 10px 0;
+  width: 400px;
+  background: #49555f;
   border-radius: 7px;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
-  align-content: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
-.item {
-  margin: 5px;
-  padding: 5px;
-  width: 350px;
+#select-bar {
+  padding: 10px;
+
   display: flex;
   flex-direction: row;
-  font-family: 'Noto Sans TC', sans-serif;
+  justify-content: space-between;
 }
 
-.index {
-  padding: 0 5px;
+#select-bar i {
+  font-size: 30px;
+}
+
+.select-item {
+  margin: 0 50px;
+
+  font-size: 18px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Component */
+.select-item-height {
+  height: 25px;
+}
+
+/* Component */
+.select-item-layout {
+  padding: 0 20px;
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-item-id {
+  padding: 0 20px 0 30px;
   background-color: #4a4063;
-  text-align: center;
-  border-radius: 5px 0 0 5px;
-  color: aliceblue;
+  border-radius: 10px 0 0 0;
 }
 
-.sex {
-  padding: 0 10px;
-  text-align: center;
+.select-item-sex {
+  background-color: #729484;
 }
 
-.name {
-  padding: 0 5px;
+.select-item-name {
   background-color: #7c7c7c;
-  border-radius: 0 5px 5px 0;
-  text-align: center;
 }
 
-.phone {
-  padding: 0 5px 0 10px;
-  text-align: center;
-}
-
-.boy {
-  background-color: #82acc8;
-}
-
-.girl {
-  background-color: #da6464;
+.select-item-phone {
+  background-color: #f8806b;
+  border-radius: 0 0 10px 0;
 }

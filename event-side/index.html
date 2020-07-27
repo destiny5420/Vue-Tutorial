@@ -17,36 +17,51 @@
 
   <body>
     <div class="app">
-      <div id="directory">
-        <div class="container">
-          <div id="title">DIRECTORY</div>
-          <div class="input-item">
-            <span class="item-title">Name</span>
-            <input type="text" class="item-input" />
-          </div>
-          <div class="input-item">
-            <span class="item-title">Email</span>
-            <input type="email" name="Email" class="item-input" />
-          </div>
-          <div class="btn-group">
-            <button class="btn confirm">CONFIRM</button>
-            <button class="btn cancel">CANCEL</button>
+      <section v-if="loading">Loading</section>
+      <section v-else>
+        <div id="directory">
+          <div class="container">
+            <div id="title">DIRECTORY</div>
+            <div class="input-item">
+              <span class="item-title">Name</span>
+              <input type="text" class="item-input" v-model="input.name" />
+            </div>
+            <div class="input-item">
+              <span class="item-title">Email</span>
+              <input
+                type="email"
+                name="Email"
+                class="item-input"
+                v-model="input.email"
+              />
+            </div>
+            <div class="btn-group">
+              <button class="btn confirm" @click="confirm()">
+                CONFIRM
+              </button>
+              <button class="btn cancel" @click="cancel()">CANCEL</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div id="info-list">
-        <div class="info-item">
-          <span class="info-index">0</span>
-          <span class="info-name">paper</span>
-          <span>paper.hsiao@gmail.com</span>
-          <button class="item-btn-width modify">修改</button>
-          <button class="item-btn-width delete">刪除</button>
+        <div id="info-list">
+          <div v-for="(item, index) in contents" class="info-item">
+            <span class="info-index">{{ item.id }}</span>
+            <span class="info-name">{{ item.name }}</span>
+            <span class="info-email">{{ item.email }}</span>
+            <button class="item-btn-width modify" @click="modify(index)">
+              修改
+            </button>
+            <button class="item-btn-width delete" @click="deleteData(index)">
+              刪除
+            </button>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="./js/app.js"></script>
   </body>
 </html>

@@ -1,46 +1,107 @@
 Vue.config.devtools = true;
+var serverUrl = 'http://localhost:8888/contact';
 
-var data = {
-  obj: {
-    num: 0,
-  },
-  objList: [{ num: 0 }, { num: 0 }, { num: 0 }],
-  number: 0,
-  numberList: [0, 0, 0],
-};
+(function (Vue) {
+  new Vue({
+    el: '.app',
+    data: {
+      loading: false,
+      contents: [],
+      input: {
+        name: '',
+        email: '',
+      },
+    },
+    beforeCreate() {
+      console.log('beforeCreate!');
+    },
+    created() {
+      console.log('created!');
+    },
+    beforeMount() {
+      console.log('beforeMount!');
+    },
+    mounted() {
+      console.log('Mounted!');
+      this.loading = true;
+      axios({
+        method: 'get',
+        url: serverUrl,
+      })
+        .then((res) => {
+          console.log(res);
+          this.contents = res.data;
+          this.loading = false;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    methods: {
+      confirm: function () {
+        console.log('onClick confirm');
+        this.loading = true;
+        axios({
+          method: 'post',
+          url: serverUrl,
+          data: {
+            name: this.input.name,
+            email: this.input.email,
+          },
+        })
+          .then((res) => {
+            console.log(res);
+            this.loading = false;
+            this.contents.push(res.data);
+            this.cancel();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      },
+      cancel: function () {
+        console.log('onClick cancel');
+        this.input.name = '';
+        this.input.email = '';
+      },
+      modify: function (index) {
+        console.log('onClick modify');
+        axios({
+          method: 'patch',
+          url: serverUrl + '/' + this.contents[index].id,
+          data: {
+            name: this.input.name,
+            email: this.input.email,
+          },
+        })
+          .then((res) => {
+            console.log('patch / ', res);
+            // Type - 1
+            this.$set(this.contents, index, res.data);
 
-let vm = new Vue({
-  el: '.app',
-  data: data,
-  methods: {
-    objListHandler: function (index) {
-      this.objList[index].num++;
-    },
-    numListHandler: function (index) {
-      this.$set(this.numberList, index, this.numberList[index] + 1);
-    },
-  },
-  watch: {
-    number: function (value, oldValue) {
-      console.log('number / newValue', value, 'oldValue:', oldValue);
-    },
-    // ['obj.num']: function (value, oldValue) {
-    //   console.log('objNumber / newValue', value, 'oldValue:', oldValue);
-    // },
-    obj: {
-      handler: function (value, oldValue) {
-        console.log('obj Deep / value: ' + value + ' / oldValue: ' + oldValue);
+            // Type - 2
+            // this.contents[index].name = res.data.name;
+            // this.contents[index].email = res.data.email;
+
+            // Type - 3 - this can't be watched.
+            // this.contents[index] = res.data;
+          })
+          .catch((err) => {
+            console.error('patch error / ', err);
+          });
       },
-      deep: true,
-    },
-    numberList: function (value, oldValue) {
-      console.log('numberList / newValue', value, 'oldValue:', oldValue);
-    },
-    objList: {
-      handler: function (value, oldValue) {
-        console.log('objList Deep / value: ', value, ' / oldValue: ', oldValue);
+      deleteData: function (index) {
+        console.log('onClick delete');
+        if (confirm(`你是否真的要刪除 ${this.contents[index].name}`)) {
+          axios({
+            method: 'delete',
+            url: serverUrl + '/' + this.contents[index].id,
+          }).then((res) => {
+            console.log('delete: ', res);
+            this.contents.splice(index, 1);
+          });
+        }
       },
-      deep: true,
     },
-  },
-});
+  });
+})(Vue);

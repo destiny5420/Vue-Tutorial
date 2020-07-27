@@ -1,3 +1,9 @@
+/*
+ ** Note:
+ ** This project need to use json-server plugin of npm, and the server port is setted 8888 in project,
+ ** so you need setting port to 8888 or adjust another number you want when you configure json-server.
+ */
+
 Vue.config.devtools = true;
 var serverUrl = 'http://localhost:8888/contact';
 
@@ -7,6 +13,7 @@ var serverUrl = 'http://localhost:8888/contact';
     data: {
       loading: false,
       contents: [],
+      editIndex: null,
       input: {
         name: '',
         email: '',
@@ -41,65 +48,84 @@ var serverUrl = 'http://localhost:8888/contact';
       confirm: function () {
         console.log('onClick confirm');
         this.loading = true;
-        axios({
-          method: 'post',
-          url: serverUrl,
-          data: {
-            name: this.input.name,
-            email: this.input.email,
-          },
-        })
-          .then((res) => {
-            console.log(res);
-            this.loading = false;
-            this.contents.push(res.data);
-            this.cancel();
+
+        if (this.editIndex === null) {
+          axios({
+            method: 'post',
+            url: serverUrl,
+            data: {
+              name: this.input.name,
+              email: this.input.email,
+            },
           })
-          .catch((err) => {
-            console.log(err);
-          });
+            .then((res) => {
+              console.log(res);
+              this.loading = false;
+              this.contents.push(res.data);
+              this.cancel();
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else {
+          axios({
+            method: 'patch',
+            url: serverUrl + '/' + this.contents[this.editIndex].id,
+            data: {
+              name: this.input.name,
+              email: this.input.email,
+            },
+          })
+            .then((res) => {
+              console.log('patch / ', res);
+              this.loading = false;
+
+              // Type - 1
+              this.$set(this.contents, this.editIndex, res.data);
+
+              // Type - 2
+              // this.contents[index].name = res.data.name;
+              // this.contents[index].email = res.data.email;
+
+              // Type - 3 - this can't be watched.
+              // this.contents[index] = res.data;
+
+              this.editIndex = null;
+            })
+            .catch((err) => {
+              console.error('patch error / ', err);
+            });
+        }
       },
       cancel: function () {
         console.log('onClick cancel');
         this.input.name = '';
         this.input.email = '';
+        this.editIndex = null;
       },
       modify: function (index) {
         console.log('onClick modify');
-        axios({
-          method: 'patch',
-          url: serverUrl + '/' + this.contents[index].id,
-          data: {
-            name: this.input.name,
-            email: this.input.email,
-          },
-        })
-          .then((res) => {
-            console.log('patch / ', res);
-            // Type - 1
-            this.$set(this.contents, index, res.data);
-
-            // Type - 2
-            // this.contents[index].name = res.data.name;
-            // this.contents[index].email = res.data.email;
-
-            // Type - 3 - this can't be watched.
-            // this.contents[index] = res.data;
-          })
-          .catch((err) => {
-            console.error('patch error / ', err);
-          });
+        this.editIndex = index;
+        this.input = {
+          name: this.contents[index].name,
+          email: this.contents[index].email,
+        };
       },
       deleteData: function (index) {
         console.log('onClick delete');
+        this.loading = true;
         if (confirm(`你是否真的要刪除 ${this.contents[index].name}`)) {
           axios({
             method: 'delete',
             url: serverUrl + '/' + this.contents[index].id,
           }).then((res) => {
             console.log('delete: ', res);
+            this.loading = false;
             this.contents.splice(index, 1);
+            this.cancel();
           });
+        } else {
+          this.loading = false;
         }
       },
     },

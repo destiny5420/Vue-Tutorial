@@ -1,5 +1,13 @@
 /*
  ** Note:
+ **
+ ** Step1.
+ ** Need to configure npm init this project to use npm command.app
+ **
+ ** Step2.
+ ** Install json-server via npm.
+ **
+ ** Step3.
  ** This project need to use json-server plugin of npm, and the server port is setted 8888 in project,
  ** so you need setting port to 8888 or adjust another number you want when you configure json-server.
  */

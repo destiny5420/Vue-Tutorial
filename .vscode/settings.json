@@ -7,5 +7,6 @@
     "**/*.sass",
     "**/*.ts",
     "**/*.json"
-  ]
+  ],
+  "blueprint.templatesPath": ["./.vscode/blueprint-templates"]
 }

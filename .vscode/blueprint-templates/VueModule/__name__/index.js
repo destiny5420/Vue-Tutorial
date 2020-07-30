@@ -1,5 +1,6 @@
 export default {
   name: 'default',
+  props: {},
   components: {},
   data: function () {
     return {};

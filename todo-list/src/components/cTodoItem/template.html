@@ -1,0 +1,19 @@
+<div class="todo-item">
+  <input
+    class="todo-item-edit"
+    type="text"
+    v-model.trim="edit"
+    v-if="edit !== null"
+    v-focus
+    @keyup.enter="submitHandler"
+    @keyup.esc="cancelHandler"
+    @blur="cancelHandler"
+  />
+  <template v-else>
+    <input class="checkbox-circle" type="checkbox" v-model="complete" />
+    <label :class="{ 'delete-line': complete }" @dblclick="editHandler"
+      >{{ todoObj.content }}</label
+    >
+    <input type="button" @click="deleteHandler" value="Del" />
+  </template>
+</div>

@@ -1,0 +1,15 @@
+#input {
+  padding: 10px;
+}
+
+#input input {
+  width: 50vw;
+  height: 30px;
+  padding: 3px 10px;
+
+  background-color: #ffffff;
+
+  border: 0px solid #ffffff;
+  outline: none;
+  border-radius: 5px;
+}

@@ -7,12 +7,9 @@
   height: 30px;
   padding: 3px 10px;
 
-  background-color: #cccccc4b;
+  background-color: #ffffff;
 
-  border: 1px solid #a8a8a8;
+  border: 0px solid #ffffff;
+  outline: none;
   border-radius: 5px;
-}
-
-#input input:focus {
-  outline-color: #8a8a8a;
 }

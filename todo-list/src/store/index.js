@@ -39,10 +39,6 @@ export default new Vuex.Store({
   },
   getters: {
     todoIndex: function(state) {
-      // return filter[state.route.name](state.todos).map((item) => {
-      //   state.todos.indexOf(item);
-      // });
-
       return filter[state.route.name](state.todos).map((item) =>
         state.todos.indexOf(item)
       );
@@ -62,8 +58,11 @@ export default new Vuex.Store({
       LS.save(state.todos);
     },
     UpdateTodos: function(state, data) {
-      // this.$set(state.todos, index, data);
-      state.todos[data.index] = data.content;
+      // this.$set(state.todos, state.todos[data.index], data.data);
+      // console.log('Index: ', data.index, ' / Data: ', data.data);
+      state.todos[data.index].content = data.data.content;
+      state.todos[data.index].complete = data.data.complete;
+      // Vue.set(state.todos, state.todos[data.index], data.data);
 
       // Save local storage.
       LS.save(state.todos);

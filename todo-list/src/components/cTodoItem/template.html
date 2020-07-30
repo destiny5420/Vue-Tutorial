@@ -1,0 +1,7 @@
+<div class="todo-item">
+  <input class="checkbox-circle" type="checkbox" v-model="complete" />
+  <label :class="{ 'delete-line': complete }" for=""
+    >{{ todoObj.content }}</label
+  >
+  <input type="button" @click="deleteHandler" />
+</div>

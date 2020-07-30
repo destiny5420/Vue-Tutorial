@@ -5,4 +5,7 @@
     <router-link to="/complete">已完成</router-link>
   </div>
   <cTodoInput />
+  <div id="todo-item-area">
+    <cTodoItem v-for="item in todoIndex" :key="item" :index="item" />
+  </div>
 </div>

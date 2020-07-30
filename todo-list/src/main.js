@@ -1,6 +1,6 @@
 import { sync } from 'vuex-router-sync';
 import Vue from 'vue';
-import App from './main.vue';
+import App from '@/view/vApp/index.vue';
 import router from './router';
 import store from './store';
 sync(store, router);

@@ -1,4 +1,5 @@
 {
+  "editor.formatOnSave": true,
   "liveServer.settings.port": 8080,
   "liveServer.settings.ignoreFiles": [
     ".vscode/**",
@@ -6,5 +7,6 @@
     "**/*.sass",
     "**/*.ts",
     "**/*.json"
-  ]
+  ],
+  "blueprint.templatesPath": ["./.vscode/blueprint-templates"]
 }
